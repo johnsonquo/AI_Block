@@ -1,0 +1,90 @@
+@import '../base';
+
+@import '../components/button';
+
+@import '../v-components/singup/_singup';
+@import '../v-components/lego-header/lego-header';
+
+@import '../mixins/mixins';
+
+
+.content {
+
+    .intro {
+
+        padding: 30px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+
+        .title {
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .sub-title {
+            margin-bottom: 30px;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .paragraph {
+            line-height: 2;
+            font-size: 24px;
+            font-weight: 600;
+        }
+    }
+
+    .intro-1 {
+
+        .left {
+
+            .btn {
+                @include button (5,10,150, #997E61, $color-white);
+            }
+
+        }
+
+        .middle {
+
+            flex: 0 0 25%;
+
+            .step {
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 20px;
+            }
+        }
+
+        .right {
+            img {
+                width: 150px;
+            }
+        }
+
+    }
+
+    .intro-2 {
+
+        background: #f5f5f5;
+
+        .left {
+            img {
+                width: 250px;
+            }
+        }
+    }
+
+    .intro-3 {
+
+        .right {
+            img {
+                width: 250px;
+            }
+        }
+    }
+}

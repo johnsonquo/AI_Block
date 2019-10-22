@@ -1,0 +1,737 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>AI_Block</Name>
+    <RootNamespace>AI_Block</RootNamespace>
+    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>8c09733b-d434-4c8a-a0e8-d524d81f895b</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <DjangoSettingsModule>AI_Block.settings</DjangoSettingsModule>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="manage.py" />
+    <Compile Include="AI_Block\__init__.py" />
+    <Compile Include="AI_Block\settings.py" />
+    <Compile Include="AI_Block\urls.py" />
+    <Compile Include="AI_Block\wsgi.py" />
+    <Compile Include="one_stock_block\admin.py" />
+    <Compile Include="one_stock_block\apps.py" />
+    <Compile Include="one_stock_block\BackTest.py" />
+    <Compile Include="one_stock_block\dobackTest.py" />
+    <Compile Include="one_stock_block\migrations\__init__.py" />
+    <Compile Include="one_stock_block\models.py" />
+    <Compile Include="one_stock_block\serializers.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="one_stock_block\tests.py" />
+    <Compile Include="one_stock_block\views.py" />
+    <Compile Include="one_stock_block\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="one_stock_block\templates\one_stock_block\ai-lego.html" />
+    <Content Include="one_stock_block\templates\one_stock_block\index.html" />
+    <Content Include="one_stock_block\templates\one_stock_block\lego.html" />
+    <Content Include="one_stock_block\templates\one_stock_block\machineResult.html" />
+    <Content Include="one_stock_block\templates\one_stock_block\selectMachine.html" />
+    <Content Include="requirements.txt" />
+    <Content Include="static\admin\css\autocomplete.css" />
+    <Content Include="static\admin\css\base.css" />
+    <Content Include="static\admin\css\changelists.css" />
+    <Content Include="static\admin\css\dashboard.css" />
+    <Content Include="static\admin\css\fonts.css" />
+    <Content Include="static\admin\css\forms.css" />
+    <Content Include="static\admin\css\login.css" />
+    <Content Include="static\admin\css\responsive.css" />
+    <Content Include="static\admin\css\responsive_rtl.css" />
+    <Content Include="static\admin\css\rtl.css" />
+    <Content Include="static\admin\css\vendor\select2\LICENSE-SELECT2.md" />
+    <Content Include="static\admin\css\vendor\select2\select2.css" />
+    <Content Include="static\admin\css\vendor\select2\select2.min.css" />
+    <Content Include="static\admin\css\widgets.css" />
+    <Content Include="static\admin\fonts\LICENSE.txt" />
+    <Content Include="static\admin\fonts\README.txt" />
+    <Content Include="static\admin\fonts\Roboto-Bold-webfont.woff" />
+    <Content Include="static\admin\fonts\Roboto-Light-webfont.woff" />
+    <Content Include="static\admin\fonts\Roboto-Regular-webfont.woff" />
+    <Content Include="static\admin\img\calendar-icons.svg" />
+    <Content Include="static\admin\img\gis\move_vertex_off.svg" />
+    <Content Include="static\admin\img\gis\move_vertex_on.svg" />
+    <Content Include="static\admin\img\icon-addlink.svg" />
+    <Content Include="static\admin\img\icon-alert.svg" />
+    <Content Include="static\admin\img\icon-calendar.svg" />
+    <Content Include="static\admin\img\icon-changelink.svg" />
+    <Content Include="static\admin\img\icon-clock.svg" />
+    <Content Include="static\admin\img\icon-deletelink.svg" />
+    <Content Include="static\admin\img\icon-no.svg" />
+    <Content Include="static\admin\img\icon-unknown-alt.svg" />
+    <Content Include="static\admin\img\icon-unknown.svg" />
+    <Content Include="static\admin\img\icon-viewlink.svg" />
+    <Content Include="static\admin\img\icon-yes.svg" />
+    <Content Include="static\admin\img\inline-delete.svg" />
+    <Content Include="static\admin\img\LICENSE" />
+    <Content Include="static\admin\img\README.txt" />
+    <Content Include="static\admin\img\search.svg" />
+    <Content Include="static\admin\img\selector-icons.svg" />
+    <Content Include="static\admin\img\sorting-icons.svg" />
+    <Content Include="static\admin\img\tooltag-add.svg" />
+    <Content Include="static\admin\img\tooltag-arrowright.svg" />
+    <Content Include="static\admin\js\actions.js" />
+    <Content Include="static\admin\js\actions.min.js" />
+    <Content Include="static\admin\js\admin\DateTimeShortcuts.js" />
+    <Content Include="static\admin\js\admin\RelatedObjectLookups.js" />
+    <Content Include="static\admin\js\autocomplete.js" />
+    <Content Include="static\admin\js\calendar.js" />
+    <Content Include="static\admin\js\cancel.js" />
+    <Content Include="static\admin\js\change_form.js" />
+    <Content Include="static\admin\js\collapse.js" />
+    <Content Include="static\admin\js\collapse.min.js" />
+    <Content Include="static\admin\js\core.js" />
+    <Content Include="static\admin\js\inlines.js" />
+    <Content Include="static\admin\js\inlines.min.js" />
+    <Content Include="static\admin\js\jquery.init.js" />
+    <Content Include="static\admin\js\popup_response.js" />
+    <Content Include="static\admin\js\prepopulate.js" />
+    <Content Include="static\admin\js\prepopulate.min.js" />
+    <Content Include="static\admin\js\prepopulate_init.js" />
+    <Content Include="static\admin\js\SelectBox.js" />
+    <Content Include="static\admin\js\SelectFilter2.js" />
+    <Content Include="static\admin\js\timeparse.js" />
+    <Content Include="static\admin\js\urlify.js" />
+    <Content Include="static\admin\js\vendor\jquery\jquery.js" />
+    <Content Include="static\admin\js\vendor\jquery\jquery.min.js" />
+    <Content Include="static\admin\js\vendor\jquery\LICENSE.txt" />
+    <Content Include="static\admin\js\vendor\select2\i18n\ar.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\az.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\bg.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\ca.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\cs.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\da.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\de.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\el.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\en.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\es.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\et.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\eu.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\fa.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\fi.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\fr.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\gl.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\he.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\hi.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\hr.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\hu.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\id.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\is.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\it.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\ja.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\km.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\ko.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\lt.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\lv.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\mk.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\ms.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\nb.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\nl.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\pl.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\pt-BR.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\pt.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\ro.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\ru.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\sk.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\sr-Cyrl.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\sr.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\sv.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\th.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\tr.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\uk.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\vi.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\zh-CN.js" />
+    <Content Include="static\admin\js\vendor\select2\i18n\zh-TW.js" />
+    <Content Include="static\admin\js\vendor\select2\LICENSE.md" />
+    <Content Include="static\admin\js\vendor\select2\select2.full.js" />
+    <Content Include="static\admin\js\vendor\select2\select2.full.min.js" />
+    <Content Include="static\admin\js\vendor\xregexp\LICENSE.txt" />
+    <Content Include="static\admin\js\vendor\xregexp\xregexp.js" />
+    <Content Include="static\admin\js\vendor\xregexp\xregexp.min.js" />
+    <Content Include="static\css\lego.css" />
+    <Content Include="static\css\main.css" />
+    <Content Include="static\css\reset.css" />
+    <Content Include="static\data\stock_1101.csv" />
+    <Content Include="static\data\stock_1102.csv" />
+    <Content Include="static\data\stock_1210.csv" />
+    <Content Include="static\data\stock_1216.csv" />
+    <Content Include="static\data\stock_1227.csv" />
+    <Content Include="static\data\stock_1229.csv" />
+    <Content Include="static\data\stock_1301.csv" />
+    <Content Include="static\data\stock_1303.csv" />
+    <Content Include="static\data\stock_1326.csv" />
+    <Content Include="static\data\stock_1402.csv" />
+    <Content Include="static\data\stock_1434.csv" />
+    <Content Include="static\data\stock_1476.csv" />
+    <Content Include="static\data\stock_1477.csv" />
+    <Content Include="static\data\stock_1504.csv" />
+    <Content Include="static\data\stock_1590.csv" />
+    <Content Include="static\data\stock_1605.csv" />
+    <Content Include="static\data\stock_1717.csv" />
+    <Content Include="static\data\stock_1722.csv" />
+    <Content Include="static\data\stock_1802.csv" />
+    <Content Include="static\data\stock_2002.csv" />
+    <Content Include="static\data\stock_2015.csv" />
+    <Content Include="static\data\stock_2027.csv" />
+    <Content Include="static\data\stock_2049.csv" />
+    <Content Include="static\data\stock_2059.csv" />
+    <Content Include="static\data\stock_2101.csv" />
+    <Content Include="static\data\stock_2104.csv" />
+    <Content Include="static\data\stock_2105.csv" />
+    <Content Include="static\data\stock_2201.csv" />
+    <Content Include="static\data\stock_2204.csv" />
+    <Content Include="static\data\stock_2207.csv" />
+    <Content Include="static\data\stock_2227.csv" />
+    <Content Include="static\data\stock_2231.csv" />
+    <Content Include="static\data\stock_2301.csv" />
+    <Content Include="static\data\stock_2303.csv" />
+    <Content Include="static\data\stock_2308.csv" />
+    <Content Include="static\data\stock_2313.csv" />
+    <Content Include="static\data\stock_2317.csv" />
+    <Content Include="static\data\stock_2324.csv" />
+    <Content Include="static\data\stock_2327.csv" />
+    <Content Include="static\data\stock_2330.csv" />
+    <Content Include="static\data\stock_2337.csv" />
+    <Content Include="static\data\stock_2344.csv" />
+    <Content Include="static\data\stock_2345.csv" />
+    <Content Include="static\data\stock_2347.csv" />
+    <Content Include="static\data\stock_2352.csv" />
+    <Content Include="static\data\stock_2353.csv" />
+    <Content Include="static\data\stock_2354.csv" />
+    <Content Include="static\data\stock_2356.csv" />
+    <Content Include="static\data\stock_2357.csv" />
+    <Content Include="static\data\stock_2360.csv" />
+    <Content Include="static\data\stock_2371.csv" />
+    <Content Include="static\data\stock_2377.csv" />
+    <Content Include="static\data\stock_2379.csv" />
+    <Content Include="static\data\stock_2382.csv" />
+    <Content Include="static\data\stock_2383.csv" />
+    <Content Include="static\data\stock_2385.csv" />
+    <Content Include="static\data\stock_2395.csv" />
+    <Content Include="static\data\stock_2404.csv" />
+    <Content Include="static\data\stock_2408.csv" />
+    <Content Include="static\data\stock_2409.csv" />
+    <Content Include="static\data\stock_2412.csv" />
+    <Content Include="static\data\stock_2439.csv" />
+    <Content Include="static\data\stock_2449.csv" />
+    <Content Include="static\data\stock_2454.csv" />
+    <Content Include="static\data\stock_2474.csv" />
+    <Content Include="static\data\stock_2492.csv" />
+    <Content Include="static\data\stock_2498.csv" />
+    <Content Include="static\data\stock_2542.csv" />
+    <Content Include="static\data\stock_2603.csv" />
+    <Content Include="static\data\stock_2610.csv" />
+    <Content Include="static\data\stock_2615.csv" />
+    <Content Include="static\data\stock_2618.csv" />
+    <Content Include="static\data\stock_2633.csv" />
+    <Content Include="static\data\stock_2723.csv" />
+    <Content Include="static\data\stock_2801.csv" />
+    <Content Include="static\data\stock_2809.csv" />
+    <Content Include="static\data\stock_2812.csv" />
+    <Content Include="static\data\stock_2823.csv" />
+    <Content Include="static\data\stock_2834.csv" />
+    <Content Include="static\data\stock_2838.csv" />
+    <Content Include="static\data\stock_2845.csv" />
+    <Content Include="static\data\stock_2880.csv" />
+    <Content Include="static\data\stock_2881.csv" />
+    <Content Include="static\data\stock_2882.csv" />
+    <Content Include="static\data\stock_2883.csv" />
+    <Content Include="static\data\stock_2884.csv" />
+    <Content Include="static\data\stock_2885.csv" />
+    <Content Include="static\data\stock_2886.csv" />
+    <Content Include="static\data\stock_2887.csv" />
+    <Content Include="static\data\stock_2888.csv" />
+    <Content Include="static\data\stock_2889.csv" />
+    <Content Include="static\data\stock_2890.csv" />
+    <Content Include="static\data\stock_2891.csv" />
+    <Content Include="static\data\stock_2892.csv" />
+    <Content Include="static\data\stock_2903.csv" />
+    <Content Include="static\data\stock_2912.csv" />
+    <Content Include="static\data\stock_2923.csv" />
+    <Content Include="static\data\stock_3008.csv" />
+    <Content Include="static\data\stock_3034.csv" />
+    <Content Include="static\data\stock_3037.csv" />
+    <Content Include="static\data\stock_3044.csv" />
+    <Content Include="static\data\stock_3045.csv" />
+    <Content Include="static\data\stock_3105.csv" />
+    <Content Include="static\data\stock_3231.csv" />
+    <Content Include="static\data\stock_3406.csv" />
+    <Content Include="static\data\stock_3443.csv" />
+    <Content Include="static\data\stock_3481.csv" />
+    <Content Include="static\data\stock_3532.csv" />
+    <Content Include="static\data\stock_3702.csv" />
+    <Content Include="static\data\stock_3711.csv" />
+    <Content Include="static\data\stock_4147.csv" />
+    <Content Include="static\data\stock_4904.csv" />
+    <Content Include="static\data\stock_4938.csv" />
+    <Content Include="static\data\stock_4958.csv" />
+    <Content Include="static\data\stock_4966.csv" />
+    <Content Include="static\data\stock_5269.csv" />
+    <Content Include="static\data\stock_5347.csv" />
+    <Content Include="static\data\stock_5483.csv" />
+    <Content Include="static\data\stock_5820.csv" />
+    <Content Include="static\data\stock_5871.csv" />
+    <Content Include="static\data\stock_5876.csv" />
+    <Content Include="static\data\stock_5880.csv" />
+    <Content Include="static\data\stock_5903.csv" />
+    <Content Include="static\data\stock_5904.csv" />
+    <Content Include="static\data\stock_6121.csv" />
+    <Content Include="static\data\stock_6147.csv" />
+    <Content Include="static\data\stock_6176.csv" />
+    <Content Include="static\data\stock_6213.csv" />
+    <Content Include="static\data\stock_6239.csv" />
+    <Content Include="static\data\stock_6274.csv" />
+    <Content Include="static\data\stock_6409.csv" />
+    <Content Include="static\data\stock_6415.csv" />
+    <Content Include="static\data\stock_6456.csv" />
+    <Content Include="static\data\stock_6488.csv" />
+    <Content Include="static\data\stock_6505.csv" />
+    <Content Include="static\data\stock_6669.csv" />
+    <Content Include="static\data\stock_8069.csv" />
+    <Content Include="static\data\stock_8299.csv" />
+    <Content Include="static\data\stock_8415.csv" />
+    <Content Include="static\data\stock_8436.csv" />
+    <Content Include="static\data\stock_8454.csv" />
+    <Content Include="static\data\stock_8464.csv" />
+    <Content Include="static\data\stock_9904.csv" />
+    <Content Include="static\data\stock_9910.csv" />
+    <Content Include="static\data\stock_9914.csv" />
+    <Content Include="static\data\stock_9917.csv" />
+    <Content Include="static\data\stock_9921.csv" />
+    <Content Include="static\data\stock_9933.csv" />
+    <Content Include="static\data\stock_9941.csv" />
+    <Content Include="static\data\stock_9945.csv" />
+    <Content Include="static\data\stock_list.csv" />
+    <Content Include="static\img\ma_200.png" />
+    <Content Include="static\img\大立光電.png" />
+    <Content Include="static\img\機器學習時間.png" />
+    <Content Include="static\img\決策樹.png" />
+    <Content Include="static\json\particles.json" />
+    <Content Include="static\js\.cache\63\8bd5fa21a220f712b692965c2176a6.json" />
+    <Content Include="static\js\.cache\88\d32e18b4913f722ce6d9dc56a59f63.json" />
+    <Content Include="static\js\.cache\dc\c928eceaa7cee399e35de7800dcab4.json" />
+    <Content Include="static\js\.cache\ff\fe058dc7d3f5b8611c0d718355ad8d.json" />
+    <Content Include="static\js\dev\components\add-remove-factor\add-remove-factor.mjs" />
+    <Content Include="static\js\dev\components\lego-header\lego-header.mjs" />
+    <Content Include="static\js\dev\components\progress-circle\progress-circle.mjs" />
+    <Content Include="static\js\dev\components\singup\singup.mjs" />
+    <Content Include="static\js\dev\views\lego.mjs" />
+    <Content Include="static\js\dev\views\machineResult.mjs" />
+    <Content Include="static\js\dist\lego.js" />
+    <Content Include="static\js\dist\lego.js.map" />
+    <Content Include="static\rest_framework\css\bootstrap-theme.min.css" />
+    <Content Include="static\rest_framework\css\bootstrap-tweaks.css" />
+    <Content Include="static\rest_framework\css\bootstrap.min.css" />
+    <Content Include="static\rest_framework\css\default.css" />
+    <Content Include="static\rest_framework\css\font-awesome-4.0.3.css" />
+    <Content Include="static\rest_framework\css\prettify.css" />
+    <Content Include="static\rest_framework\docs\css\base.css" />
+    <Content Include="static\rest_framework\docs\css\highlight.css" />
+    <Content Include="static\rest_framework\docs\css\jquery.json-view.min.css" />
+    <Content Include="static\rest_framework\docs\img\favicon.ico" />
+    <Content Include="static\rest_framework\docs\img\grid.png" />
+    <Content Include="static\rest_framework\docs\js\api.js" />
+    <Content Include="static\rest_framework\docs\js\highlight.pack.js" />
+    <Content Include="static\rest_framework\docs\js\jquery.json-view.min.js" />
+    <Content Include="static\rest_framework\fonts\fontawesome-webfont.eot" />
+    <Content Include="static\rest_framework\fonts\fontawesome-webfont.svg" />
+    <Content Include="static\rest_framework\fonts\fontawesome-webfont.ttf" />
+    <Content Include="static\rest_framework\fonts\fontawesome-webfont.woff" />
+    <Content Include="static\rest_framework\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="static\rest_framework\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="static\rest_framework\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="static\rest_framework\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="static\rest_framework\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="static\rest_framework\img\glyphicons-halflings-white.png" />
+    <Content Include="static\rest_framework\img\glyphicons-halflings.png" />
+    <Content Include="static\rest_framework\img\grid.png" />
+    <Content Include="static\rest_framework\js\ajax-form.js" />
+    <Content Include="static\rest_framework\js\bootstrap.min.js" />
+    <Content Include="static\rest_framework\js\coreapi-0.1.1.js" />
+    <Content Include="static\rest_framework\js\csrf.js" />
+    <Content Include="static\rest_framework\js\default.js" />
+    <Content Include="static\rest_framework\js\jquery-3.4.1.min.js" />
+    <Content Include="static\rest_framework\js\prettify-min.js" />
+    <Content Include="static\scss\components\_button.scss" />
+    <Content Include="static\scss\main.scss" />
+    <Content Include="static\scss\prepros-6.config" />
+    <Content Include="static\scss\v-components\lego-header\_lego-header.scss" />
+    <Content Include="static\scss\v-components\progress-circle\_progress-circle.scss" />
+    <Content Include="static\scss\views\lego.scss" />
+    <Content Include="static\scss\_base.scss" />
+    <Content Include="static\scss\_const.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AI_Block\" />
+    <Folder Include="one_stock_block\" />
+    <Folder Include="one_stock_block\migrations\" />
+    <Folder Include="one_stock_block\templates\" />
+    <Folder Include="one_stock_block\templates\one_stock_block\" />
+    <Folder Include="static\" />
+    <Folder Include="static\admin\" />
+    <Folder Include="static\admin\css\" />
+    <Folder Include="static\admin\css\vendor\" />
+    <Folder Include="static\admin\css\vendor\select2\" />
+    <Folder Include="static\admin\fonts\" />
+    <Folder Include="static\admin\img\" />
+    <Folder Include="static\admin\img\gis\" />
+    <Folder Include="static\admin\js\" />
+    <Folder Include="static\admin\js\admin\" />
+    <Folder Include="static\admin\js\vendor\" />
+    <Folder Include="static\admin\js\vendor\jquery\" />
+    <Folder Include="static\admin\js\vendor\select2\" />
+    <Folder Include="static\admin\js\vendor\select2\i18n\" />
+    <Folder Include="static\admin\js\vendor\xregexp\" />
+    <Folder Include="static\css\" />
+    <Folder Include="static\data\" />
+    <Folder Include="static\img\" />
+    <Folder Include="static\json\" />
+    <Folder Include="static\js\" />
+    <Folder Include="static\js\.cache\" />
+    <Folder Include="static\js\.cache\00\" />
+    <Folder Include="static\js\.cache\01\" />
+    <Folder Include="static\js\.cache\02\" />
+    <Folder Include="static\js\.cache\03\" />
+    <Folder Include="static\js\.cache\04\" />
+    <Folder Include="static\js\.cache\05\" />
+    <Folder Include="static\js\.cache\06\" />
+    <Folder Include="static\js\.cache\07\" />
+    <Folder Include="static\js\.cache\08\" />
+    <Folder Include="static\js\.cache\09\" />
+    <Folder Include="static\js\.cache\0a\" />
+    <Folder Include="static\js\.cache\0b\" />
+    <Folder Include="static\js\.cache\0c\" />
+    <Folder Include="static\js\.cache\0d\" />
+    <Folder Include="static\js\.cache\0e\" />
+    <Folder Include="static\js\.cache\0f\" />
+    <Folder Include="static\js\.cache\10\" />
+    <Folder Include="static\js\.cache\11\" />
+    <Folder Include="static\js\.cache\12\" />
+    <Folder Include="static\js\.cache\13\" />
+    <Folder Include="static\js\.cache\14\" />
+    <Folder Include="static\js\.cache\15\" />
+    <Folder Include="static\js\.cache\16\" />
+    <Folder Include="static\js\.cache\17\" />
+    <Folder Include="static\js\.cache\18\" />
+    <Folder Include="static\js\.cache\19\" />
+    <Folder Include="static\js\.cache\1a\" />
+    <Folder Include="static\js\.cache\1b\" />
+    <Folder Include="static\js\.cache\1c\" />
+    <Folder Include="static\js\.cache\1d\" />
+    <Folder Include="static\js\.cache\1e\" />
+    <Folder Include="static\js\.cache\1f\" />
+    <Folder Include="static\js\.cache\20\" />
+    <Folder Include="static\js\.cache\21\" />
+    <Folder Include="static\js\.cache\22\" />
+    <Folder Include="static\js\.cache\23\" />
+    <Folder Include="static\js\.cache\24\" />
+    <Folder Include="static\js\.cache\25\" />
+    <Folder Include="static\js\.cache\26\" />
+    <Folder Include="static\js\.cache\27\" />
+    <Folder Include="static\js\.cache\28\" />
+    <Folder Include="static\js\.cache\29\" />
+    <Folder Include="static\js\.cache\2a\" />
+    <Folder Include="static\js\.cache\2b\" />
+    <Folder Include="static\js\.cache\2c\" />
+    <Folder Include="static\js\.cache\2d\" />
+    <Folder Include="static\js\.cache\2e\" />
+    <Folder Include="static\js\.cache\2f\" />
+    <Folder Include="static\js\.cache\30\" />
+    <Folder Include="static\js\.cache\31\" />
+    <Folder Include="static\js\.cache\32\" />
+    <Folder Include="static\js\.cache\33\" />
+    <Folder Include="static\js\.cache\34\" />
+    <Folder Include="static\js\.cache\35\" />
+    <Folder Include="static\js\.cache\36\" />
+    <Folder Include="static\js\.cache\37\" />
+    <Folder Include="static\js\.cache\38\" />
+    <Folder Include="static\js\.cache\39\" />
+    <Folder Include="static\js\.cache\3a\" />
+    <Folder Include="static\js\.cache\3b\" />
+    <Folder Include="static\js\.cache\3c\" />
+    <Folder Include="static\js\.cache\3d\" />
+    <Folder Include="static\js\.cache\3e\" />
+    <Folder Include="static\js\.cache\3f\" />
+    <Folder Include="static\js\.cache\40\" />
+    <Folder Include="static\js\.cache\41\" />
+    <Folder Include="static\js\.cache\42\" />
+    <Folder Include="static\js\.cache\43\" />
+    <Folder Include="static\js\.cache\44\" />
+    <Folder Include="static\js\.cache\45\" />
+    <Folder Include="static\js\.cache\46\" />
+    <Folder Include="static\js\.cache\47\" />
+    <Folder Include="static\js\.cache\48\" />
+    <Folder Include="static\js\.cache\49\" />
+    <Folder Include="static\js\.cache\4a\" />
+    <Folder Include="static\js\.cache\4b\" />
+    <Folder Include="static\js\.cache\4c\" />
+    <Folder Include="static\js\.cache\4d\" />
+    <Folder Include="static\js\.cache\4e\" />
+    <Folder Include="static\js\.cache\4f\" />
+    <Folder Include="static\js\.cache\50\" />
+    <Folder Include="static\js\.cache\51\" />
+    <Folder Include="static\js\.cache\52\" />
+    <Folder Include="static\js\.cache\53\" />
+    <Folder Include="static\js\.cache\54\" />
+    <Folder Include="static\js\.cache\55\" />
+    <Folder Include="static\js\.cache\56\" />
+    <Folder Include="static\js\.cache\57\" />
+    <Folder Include="static\js\.cache\58\" />
+    <Folder Include="static\js\.cache\59\" />
+    <Folder Include="static\js\.cache\5a\" />
+    <Folder Include="static\js\.cache\5b\" />
+    <Folder Include="static\js\.cache\5c\" />
+    <Folder Include="static\js\.cache\5d\" />
+    <Folder Include="static\js\.cache\5e\" />
+    <Folder Include="static\js\.cache\5f\" />
+    <Folder Include="static\js\.cache\60\" />
+    <Folder Include="static\js\.cache\61\" />
+    <Folder Include="static\js\.cache\62\" />
+    <Folder Include="static\js\.cache\63\" />
+    <Folder Include="static\js\.cache\64\" />
+    <Folder Include="static\js\.cache\65\" />
+    <Folder Include="static\js\.cache\66\" />
+    <Folder Include="static\js\.cache\67\" />
+    <Folder Include="static\js\.cache\68\" />
+    <Folder Include="static\js\.cache\69\" />
+    <Folder Include="static\js\.cache\6a\" />
+    <Folder Include="static\js\.cache\6b\" />
+    <Folder Include="static\js\.cache\6c\" />
+    <Folder Include="static\js\.cache\6d\" />
+    <Folder Include="static\js\.cache\6e\" />
+    <Folder Include="static\js\.cache\6f\" />
+    <Folder Include="static\js\.cache\70\" />
+    <Folder Include="static\js\.cache\71\" />
+    <Folder Include="static\js\.cache\72\" />
+    <Folder Include="static\js\.cache\73\" />
+    <Folder Include="static\js\.cache\74\" />
+    <Folder Include="static\js\.cache\75\" />
+    <Folder Include="static\js\.cache\76\" />
+    <Folder Include="static\js\.cache\77\" />
+    <Folder Include="static\js\.cache\78\" />
+    <Folder Include="static\js\.cache\79\" />
+    <Folder Include="static\js\.cache\7a\" />
+    <Folder Include="static\js\.cache\7b\" />
+    <Folder Include="static\js\.cache\7c\" />
+    <Folder Include="static\js\.cache\7d\" />
+    <Folder Include="static\js\.cache\7e\" />
+    <Folder Include="static\js\.cache\7f\" />
+    <Folder Include="static\js\.cache\80\" />
+    <Folder Include="static\js\.cache\81\" />
+    <Folder Include="static\js\.cache\82\" />
+    <Folder Include="static\js\.cache\83\" />
+    <Folder Include="static\js\.cache\84\" />
+    <Folder Include="static\js\.cache\85\" />
+    <Folder Include="static\js\.cache\86\" />
+    <Folder Include="static\js\.cache\87\" />
+    <Folder Include="static\js\.cache\88\" />
+    <Folder Include="static\js\.cache\89\" />
+    <Folder Include="static\js\.cache\8a\" />
+    <Folder Include="static\js\.cache\8b\" />
+    <Folder Include="static\js\.cache\8c\" />
+    <Folder Include="static\js\.cache\8d\" />
+    <Folder Include="static\js\.cache\8e\" />
+    <Folder Include="static\js\.cache\8f\" />
+    <Folder Include="static\js\.cache\90\" />
+    <Folder Include="static\js\.cache\91\" />
+    <Folder Include="static\js\.cache\92\" />
+    <Folder Include="static\js\.cache\93\" />
+    <Folder Include="static\js\.cache\94\" />
+    <Folder Include="static\js\.cache\95\" />
+    <Folder Include="static\js\.cache\96\" />
+    <Folder Include="static\js\.cache\97\" />
+    <Folder Include="static\js\.cache\98\" />
+    <Folder Include="static\js\.cache\99\" />
+    <Folder Include="static\js\.cache\9a\" />
+    <Folder Include="static\js\.cache\9b\" />
+    <Folder Include="static\js\.cache\9c\" />
+    <Folder Include="static\js\.cache\9d\" />
+    <Folder Include="static\js\.cache\9e\" />
+    <Folder Include="static\js\.cache\9f\" />
+    <Folder Include="static\js\.cache\a0\" />
+    <Folder Include="static\js\.cache\a1\" />
+    <Folder Include="static\js\.cache\a2\" />
+    <Folder Include="static\js\.cache\a3\" />
+    <Folder Include="static\js\.cache\a4\" />
+    <Folder Include="static\js\.cache\a5\" />
+    <Folder Include="static\js\.cache\a6\" />
+    <Folder Include="static\js\.cache\a7\" />
+    <Folder Include="static\js\.cache\a8\" />
+    <Folder Include="static\js\.cache\a9\" />
+    <Folder Include="static\js\.cache\aa\" />
+    <Folder Include="static\js\.cache\ab\" />
+    <Folder Include="static\js\.cache\ac\" />
+    <Folder Include="static\js\.cache\ad\" />
+    <Folder Include="static\js\.cache\ae\" />
+    <Folder Include="static\js\.cache\af\" />
+    <Folder Include="static\js\.cache\b0\" />
+    <Folder Include="static\js\.cache\b1\" />
+    <Folder Include="static\js\.cache\b2\" />
+    <Folder Include="static\js\.cache\b3\" />
+    <Folder Include="static\js\.cache\b4\" />
+    <Folder Include="static\js\.cache\b5\" />
+    <Folder Include="static\js\.cache\b6\" />
+    <Folder Include="static\js\.cache\b7\" />
+    <Folder Include="static\js\.cache\b8\" />
+    <Folder Include="static\js\.cache\b9\" />
+    <Folder Include="static\js\.cache\ba\" />
+    <Folder Include="static\js\.cache\bb\" />
+    <Folder Include="static\js\.cache\bc\" />
+    <Folder Include="static\js\.cache\bd\" />
+    <Folder Include="static\js\.cache\be\" />
+    <Folder Include="static\js\.cache\bf\" />
+    <Folder Include="static\js\.cache\c0\" />
+    <Folder Include="static\js\.cache\c1\" />
+    <Folder Include="static\js\.cache\c2\" />
+    <Folder Include="static\js\.cache\c3\" />
+    <Folder Include="static\js\.cache\c4\" />
+    <Folder Include="static\js\.cache\c5\" />
+    <Folder Include="static\js\.cache\c6\" />
+    <Folder Include="static\js\.cache\c7\" />
+    <Folder Include="static\js\.cache\c8\" />
+    <Folder Include="static\js\.cache\c9\" />
+    <Folder Include="static\js\.cache\ca\" />
+    <Folder Include="static\js\.cache\cb\" />
+    <Folder Include="static\js\.cache\cc\" />
+    <Folder Include="static\js\.cache\cd\" />
+    <Folder Include="static\js\.cache\ce\" />
+    <Folder Include="static\js\.cache\cf\" />
+    <Folder Include="static\js\.cache\d0\" />
+    <Folder Include="static\js\.cache\d1\" />
+    <Folder Include="static\js\.cache\d2\" />
+    <Folder Include="static\js\.cache\d3\" />
+    <Folder Include="static\js\.cache\d4\" />
+    <Folder Include="static\js\.cache\d5\" />
+    <Folder Include="static\js\.cache\d6\" />
+    <Folder Include="static\js\.cache\d7\" />
+    <Folder Include="static\js\.cache\d8\" />
+    <Folder Include="static\js\.cache\d9\" />
+    <Folder Include="static\js\.cache\da\" />
+    <Folder Include="static\js\.cache\db\" />
+    <Folder Include="static\js\.cache\dc\" />
+    <Folder Include="static\js\.cache\dd\" />
+    <Folder Include="static\js\.cache\de\" />
+    <Folder Include="static\js\.cache\df\" />
+    <Folder Include="static\js\.cache\e0\" />
+    <Folder Include="static\js\.cache\e1\" />
+    <Folder Include="static\js\.cache\e2\" />
+    <Folder Include="static\js\.cache\e3\" />
+    <Folder Include="static\js\.cache\e4\" />
+    <Folder Include="static\js\.cache\e5\" />
+    <Folder Include="static\js\.cache\e6\" />
+    <Folder Include="static\js\.cache\e7\" />
+    <Folder Include="static\js\.cache\e8\" />
+    <Folder Include="static\js\.cache\e9\" />
+    <Folder Include="static\js\.cache\ea\" />
+    <Folder Include="static\js\.cache\eb\" />
+    <Folder Include="static\js\.cache\ec\" />
+    <Folder Include="static\js\.cache\ed\" />
+    <Folder Include="static\js\.cache\ee\" />
+    <Folder Include="static\js\.cache\ef\" />
+    <Folder Include="static\js\.cache\f0\" />
+    <Folder Include="static\js\.cache\f1\" />
+    <Folder Include="static\js\.cache\f2\" />
+    <Folder Include="static\js\.cache\f3\" />
+    <Folder Include="static\js\.cache\f4\" />
+    <Folder Include="static\js\.cache\f5\" />
+    <Folder Include="static\js\.cache\f6\" />
+    <Folder Include="static\js\.cache\f7\" />
+    <Folder Include="static\js\.cache\f8\" />
+    <Folder Include="static\js\.cache\f9\" />
+    <Folder Include="static\js\.cache\fa\" />
+    <Folder Include="static\js\.cache\fb\" />
+    <Folder Include="static\js\.cache\fc\" />
+    <Folder Include="static\js\.cache\fd\" />
+    <Folder Include="static\js\.cache\fe\" />
+    <Folder Include="static\js\.cache\ff\" />
+    <Folder Include="static\js\dev\" />
+    <Folder Include="static\js\dev\components\" />
+    <Folder Include="static\js\dev\components\add-remove-factor\" />
+    <Folder Include="static\js\dev\components\lego-header\" />
+    <Folder Include="static\js\dev\components\progress-circle\" />
+    <Folder Include="static\js\dev\components\singup\" />
+    <Folder Include="static\js\dev\views\" />
+    <Folder Include="static\js\dist\" />
+    <Folder Include="static\rest_framework\" />
+    <Folder Include="static\rest_framework\css\" />
+    <Folder Include="static\rest_framework\docs\" />
+    <Folder Include="static\rest_framework\docs\css\" />
+    <Folder Include="static\rest_framework\docs\img\" />
+    <Folder Include="static\rest_framework\docs\js\" />
+    <Folder Include="static\rest_framework\fonts\" />
+    <Folder Include="static\rest_framework\img\" />
+    <Folder Include="static\rest_framework\js\" />
+    <Folder Include="static\scss\" />
+    <Folder Include="static\scss\components\" />
+    <Folder Include="static\scss\v-components\" />
+    <Folder Include="static\scss\v-components\lego-header\" />
+    <Folder Include="static\scss\v-components\progress-circle\" />
+    <Folder Include="static\scss\views\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

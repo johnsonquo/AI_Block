@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>績效頁面</title>
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/machineResult.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/v-charts/lib/style.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/v-charts/lib/index.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.1.1/vuex.min.js"></script>
+</head>
+<body>
+
+    <main id="app">
+
+        <lego-header></lego-header>
+
+        <h1>績效頁面</h1>
+
+        <div class="result-1">
+            <table>
+                <thead>
+                    <tr>
+                        <th v-for="(item,index) in totalNetTitle " :key="index">#{item}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in totalNetValue" :key="index">
+                        <td>#{item['期間']}</td>
+                        <td>#{item['策略']}</td>
+                        <td>#{item['總交易次數']}</td>
+                        <td>#{item['總報酬率']}</td>
+                        <td>#{item['勝率']}</td>
+                        <td>#{item['獲利因子']}</td>
+                        <td>#{item['平均獲利']}</td>
+                        <td>#{item['最大獲利']}</td>
+                        <td>#{item['平均損失']}</td>
+                        <td>#{item['最大損失']}</td>
+                        <td>#{item['mdd']}</td>
+                        <td>#{item['風報比']}</td>
+                        <td>#{item['總交易成本']}</td>
+                        <td>#{item['標準差']}</td>
+                        <td>#{item['ShapeRatio']}</td>
+                        <td>#{transformDate(item['mdd開始日期'])}</td>
+                        <td>#{transformDate(item['mdd結束日期'])}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="result-2">
+            <h3>最近五筆交易</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th v-for="(item,index) in latestTradeTitle" :key="index">#{item}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in latestTradeValue" :key="index">
+                        <td>#{item['交易編號']}</td>
+                        <td>#{item['買賣']}</td>
+                        <td>#{transformDate(item['交易開始日'])}</td>
+                        <td>#{transformDate(item['交易結束日'])}</td>
+                        <td>#{item['交易天數']}</td>
+                        <td>#{roundOffNumber(item['交易報酬率'])}</td>
+                        <td>#{item['交易價格']}</td>
+                        <td>#{item['平倉價格']}</td>
+                        <td>#{item['交易日內出現最高價格']}</td>
+                        <td>#{item['交易日內出現最低價格']}</td>
+                        <td>#{roundOffNumber(item['交易日內最大可能獲利'])}</td>
+                        <td>#{roundOffNumber(item['交易日內最大可能損失'])}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="result-3">
+            <ve-line :data="netValueChartData" :settings="NetValueChartSettings"></ve-line>
+        </div>
+        
+        <div class="result-4">
+            <div ref="candlestick" style="height:500px;"></div>
+        </div>
+        
+    </main>
+
+    <script src="/static/js/dist/machineResult.js"></script>
+    <!-- <script src="/static/js/dev/views/machineResult.mjs" type="module"></script> -->
+
+</body>
+</html>

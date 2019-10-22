@@ -1,0 +1,99 @@
+@import '../../const';
+
+.circle-out {
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background: #3c3b3b;
+    overflow: hidden;
+
+    .circle-in {
+        border-radius: 33%;
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        left: -30px;
+        bottom: -145%;
+        background: #5e7cb8;
+        animation: waves 3s linear infinite;
+        transition: .3s;
+    }
+
+    .circle-text {
+        text-align: center;
+        color: $color-white;
+        width: 100%;
+        position: absolute;
+        top: 40%;
+    }
+}
+
+.progress-circle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(255,255,255,0.5);
+
+    .circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 999;
+
+        &-text {
+            position: absolute;
+            top: 40%;
+            left: 17%;
+            font-size: 22px;
+            font-family: inherit;
+            animation: scale 1s linear infinite;
+            animation-direction: alternate;
+            color: $bg-dark;
+        }
+    }
+
+    circle {
+        stroke-width: 8px;
+        transform-origin: center;
+        &.progress-background {
+            transform: scale(0.9);
+            stroke: #d4d3d3;
+        }
+        &.progress-bar {
+            transform: scale(0.9) rotate(-90deg);
+            stroke: $bg-dark;
+        }
+    }
+}
+
+@keyframes waves {
+    0% {
+        transform: rotate(0);
+        border-radius: 30%;
+    }
+
+    45% {
+        border-radius: 39%;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        border-radius: 30%;
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}

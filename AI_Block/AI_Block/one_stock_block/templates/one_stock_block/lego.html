@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/lego.css">
+    <title>lego</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.1.1/vuex.min.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+
+        <lego-header></lego-header>
+
+        <sing-up :status="showSingUP"></sing-up>
+        <login :status="showLogin"></login>
+        
+        <progress-circle :percent="loadingPercent" :status="status"></progress-circle>
+
+        <main class="main">
+
+            <div class="main-left">
+                <div class="main-left-box" ref="mainLeftBox">
+                    <div class="step step-active" :class="{'step-completed': companyName }" @click="changeMainRightBox($event,'step1','選股票')">
+                        <h3 class="step-title">STEP1 選股票</h3>
+                        <p  class="step-result">
+                            <label class="step-result-label">股票名稱</label>
+                            <span class="step-result-text">#{selectedCompany}</span></p>
+                    </div>
+                    <div class="step" :class="{'step-completed': selectedAi}" @click="changeMainRightBox($event,'step2','選A.I')">
+                        <h3 class="step-title">STEP2 選A.I</h3>
+                        <p class="step-result">
+                            <label class="step-result-label">機器人名稱</label>
+                            <span class="step-result-text">#{selectedAi}</span></p>
+                    </div>
+                    <div class="step" :class="{'step-completed': selectedSampleInDate && selectedSampleOutDate }" @click="changeMainRightBox($event,'step3','訓練/測試樣本期間')">
+                        <h3 class="step-title">STEP3 訓練/測試樣本期間</h3>
+                        <p class="step-result">
+                            <label class="step-result-label">樣本內</label>
+                            <span class="step-result-text step-result-text-small">#{selectedSampleInDate}</span></p>
+                        <p class="step-result">
+                            <label class="step-result-label">樣本外</label>
+                            <span class="step-result-text step-result-text-small">#{selectedSampleOutDate}</span></p>
+                    </div>
+                    <div class="step" :class="{'step-completed': selectedPredict }" @click="changeMainRightBox($event,'step4','選擇預測目標')">
+                        <h3 class="step-title">STEP4 選擇預測目標</h3>
+                        <p class="step-result">
+                            <label class="step-result-label">目標樣本</label>
+                            <span class="step-result-text">#{selectedPredict}</span></p>
+                    </div>
+                    <div class="step" :class="{'step-completed': selectedFactor }" @click="changeMainRightBox($event,'step5','選擇因子')">
+                        <h3 class="step-title">STEP5 選擇因子</h3>
+                        <p  class="step-result">
+                            <label class="step-result-label">目標樣本</label>
+                            <span class="step-result-text step-result-text-small">#{selectedFactor}</span></p>
+                    </div>
+                    <div class="step" :class="{'step-completed': selectedBackTesting1 && selectedBackTesting2 }" @click="changeMainRightBox($event,'step6','回測參數設定')">
+                        <h3 class="step-title">STEP6 回測參數設定</h3>
+                        <p class="step-result">
+                            <label class="step-result-label">進出場臨界值</label>
+                            <span class="step-result-text">#{selectedBackTesting1}</span></p>
+
+                        <p class="step-result">
+                            <label class="step-result-label">停利、損點</label>
+                            <span class="step-result-text">#{selectedBackTesting2}</span></p>
+                    </div>
+                </div>
+                <a href="javascript:;" class="btn-normal" @click="postData">確認執行</a>
+            </div>
+
+            <div class="main-right" ref="mainRight">
+
+                <div class="main-right-top">
+
+                    <h2 class="title">#{stepTitle}</h2>
+
+                    <div class="main-right-top_right main-right-top_right">
+                        <div class="circle-out">
+                            <div class="circle-in" ref="wave"></div>
+                            <div class="circle-text">#{circlePercent}%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ref="mainRightBox" class="main-right-wrapper">
+
+                    <div class="main-right-box main-right-box-1" id="step1" ref="step1">
+
+                        <div class="main-right_left">
+                            <input type="text" placeholder="直接輸入股票代碼" class="input" />
+                            <div class="parameter-box">
+                                <p class="parameter" v-for="(item,index) in allStock" @click="selectCompany(item.code,item.name)">#{item.code} #{item.name}</p>
+                            </div>
+                        </div>
+
+                        <div class="main-right_right">
+                            <h4>選擇想進行回測的股票</h4>
+                            <img class="main-right_right-img" src="/static/img/大立光電.png">
+                        </div>
+
+                        <div class="main-right-bottom">
+                            <div class="step-result">
+                                <label class="step-result-label">你的選擇</label>
+                                <span class="step-result-text">#{selectedCompany}</span>
+                                <a href="javascript:;" class="btn-normal" @click="nextStep(1)">儲存條件</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="main-right-box" id="step2" ref="step2">
+
+                        <div class="main-right_left">
+                            <input type="text" placeholder="直接填入" class="input" />
+                            <div class="parameter-box">
+                                <p class="parameter" v-for="(item,index) in ai" @click="selectAI(item)">#{item}</p>
+                            </div>
+                        </div>
+
+                        <div class="main-right_right">
+                            <h4>選擇使用的機器學習模型</h4>
+                            <p>利用大量數據，讓電腦找出規則在何種條件組合下買進賣出最適合</p>
+                            <img class="main-right_right-img" src="/static/img/決策樹.png">
+                        </div>
+
+
+                        <div class="main-right-bottom">
+                            <div class="step-result">
+                                <label class="step-result-label">你的選擇</label>
+                                <span class="step-result-text">#{selectedAi}</span>
+                                <a href="javascript:;" class="btn-normal" @click="nextStep(2)">儲存條件</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="main-right-box" id="step3" ref="step3">
+
+                        <div class="main-right_left">
+
+                                <div class="input-box">
+                                    <label>樣本內開始日期</label>
+                                    <input type="date" v-model="sampleInStartDate" />
+                                </div>
+
+                                <div class="input-box">
+                                    <label>樣本內結束日期</label>
+                                    <input type="date" v-model="sampleInEndDate" />
+                                </div>
+
+                                <div class="input-box">
+                                    <label>樣本外開始日期</label>
+                                    <input type="date" v-model="sampleOutStartDate" />
+                                </div>
+
+                                <div class="input-box">
+                                    <label>樣本外結束日期</label>
+                                    <input type="date" v-model="sampleOutEndDate" />
+                                </div>
+                                
+                        </div>
+
+                        <div class="main-right_right">
+                            <h4>選擇機器學習進行學習日期區間，以及實驗日期區間</h4>
+                            <p>一般而言建議學習與實驗時間設定7:3的天數比例</p>
+                            <img class="main-right_right-img" src="/static/img/機器學習時間.png" alt="">
+                        </div>
+
+                        <div class="main-right-bottom">
+                            <div class="step-result">
+                                <label class="step-result-label">你的選擇</label>
+                                <span class="step-result-text step-result-text-1">#{selectedSampleInDate}</span>
+                                <span class="step-result-text step-result-text-2">#{selectedSampleOutDate}</span>
+                                <a href="javascript:;" class="btn-normal" @click="nextStep(3)">儲存條件</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="main-right-box" id="step4" ref="step4">
+
+                        <div class="main-right_left">
+                            <input type="text" placeholder="直接填入" class="input" />
+                            <div class="parameter-box">
+                                <p class="parameter" v-for="(item,index) in predictArray" @click="selectPredict(item)">#{item}</p>
+                            </div>
+                        </div>
+
+                        <div class="main-right_right">
+                            <h4>選擇預測目標，機器學習會盡其所能預測出未來該目標數值</h4>
+                        </div>
+
+                        <div class="main-right-bottom">
+                            <div class="step-result">
+                                <label class="step-result-label">你的選擇</label>
+                                <span class="step-result-text">#{selectedPredict}</span></p>
+                                <a href="javascript:;" class="btn-normal" @click="nextStep(4)">儲存條件</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="main-right-box" id="step5" ref="step5">
+
+                        <div class="main-right_left">
+                            <div class="factor-wrapper">
+
+                                <div class="factor-box">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>指標名稱</th>
+                                                <th>天數</th>
+                                                <th>參數</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <template>
+                                                <add-remove-factor v-for="(item,index) in factorCount" :icon="handleIconText(index)" :item="item" :key="item.uid" :index="index" :factors="factorsArray" @handle-click-icon="handleClickIcon" @change-factor="changeFactor"></add-remove-factor>
+                                            </template>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="main-right_right">
+                            <h4>利用那些有用的指標(ex : RSI)或資料來學習預測要預測的目標(隔天報酬率)</h4>
+                            <img class="main-right_right-img" src="/static/img/ma_200.png" alt="">
+                        </div>
+
+                        <div class="main-right-bottom">
+                            <div class="step-result">
+                                <label class="step-result-label">你的選擇</label>
+                                <span class="step-result-text">#{selectedFactor}</span></p>
+                                <a href="javascript:;" class="btn-normal" @click="nextStep(5)">儲存條件</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="main-right-box" id="step6" ref="step6">
+
+                        <div class="main-right_left">
+
+                                <div class="input-box">
+                                    <label>進場臨界值</label>
+                                    <input type="text" v-model="inLimitValue" placeholder="直接填入" />
+                                </div>
+
+                                <div class="input-box">
+                                    <label>出場臨界值</label>
+                                    <input type="text" v-model="outLimitValue" placeholder="直接填入" />
+                                </div>
+
+                                <div class="input-box">
+                                    <label>停利點</label>
+                                    <input type="text" v-model="lockInGainValue" placeholder="直接填入" />
+                                </div>
+
+                                <div class="input-box">
+                                    <label>停損點</label>
+                                    <input type="text" v-model="stopLossPoint" placeholder="直接填入" />
+                                </div>
+
+                        </div>
+
+                        <div class="main-right_right">
+                            <h4>設定你的交易策略細節，ex:停損停利</h4>
+                            <p>利用停損停利來彌補機器學習不足的部分使績效更加漂亮</p>
+                        </div>
+
+                        <div class="main-right-bottom">
+                            <div class="step-result">
+                                <label class="step-result-label">你的選擇</label>
+                                <span class="step-result-text step-result-1">#{selectedBackTesting1}</span>
+                                <span class="step-result-text step-result-2">#{selectedBackTesting2}</span>
+                                <a href="javascript:;" class="btn-normal" @click="nextStep(0)">儲存條件</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                </div>
+
+            </div>
+
+        </main>     
+
+    </div>
+
+    <script src="/static/js/dist/lego.js"></script>
+    <!-- <script src="/static/js/dev/views/lego.mjs" type="module"></script> -->
+    
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/ai-lego.css">
+    <title>A.I. LEGO | LEGO</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.1.1/vuex.min.js"></script>
+</head>
+<body>
+    <main id="app">
+
+        <lego-header></lego-header>
+
+        <sing-up :status="showSingUP" ref="singup"></sing-up>
+        <login :status="showLogin" ref="login"></login>
+
+        <div class="content">
+
+            <div class="intro intro-1">
+
+                <div class="left">
+                    <h3 class="title">簡單六步驟</h3>
+                    <p class="sub-title">建造屬於你的A.I.投資聖杯</p>
+                    <a href="/lego/detail" class="btn">試試看</a>
+                </div>
+
+                <div class="middle">
+                    <div class="step">
+                        <div class="key">step1</div>
+                        <div class="value">選股票</div>
+                    </div>
+                    <div class="step">
+                        <div class="key">step2</div>
+                        <div class="value">選A.I.</div>
+                    </div>
+                    <div class="step">
+                        <div class="key">step3</div>
+                        <div class="value">訓練/測試樣本期間</div>
+                    </div>
+                    <div class="step">
+                        <div class="key">step4</div>
+                        <div class="value">選擇預測目標</div>
+                    </div>
+                    <div class="step">
+                        <div class="key">step5</div>
+                        <div class="value">選擇因子</div>
+                    </div>
+                    <div class="step">
+                        <div class="key">step6</div>
+                        <div class="value">回測參數設定</div>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <img src="/static/img/lego-1.png" alt="A.L. Lego">
+                </div>
+
+            </div>
+
+            <div class="intro intro-2 ">
+                <div class="left">
+                    <img src="/static/img/lego-2.jpg" alt="A.L. Lego">
+                </div>
+                <div class="middle">
+                    <p class="paragraph">
+                        A.I. lego 擁有完整的回測系統 <br>
+                        一個按鍵就能輕鬆儲存 <br>
+                        以及隨時優化你的回測模型
+                    </p>
+                </div>
+                <div class="right">
+                    <h3 class="title">一鍵存取回測模型</h3>
+                    <p class="sub-title">輕鬆得到完整績效報告</p>
+                </div>
+            </div>
+
+            <div class="intro intro-3">
+
+                <div class="left">
+                    <h3  class="title">資產配置</h3>
+                    <p class="sub-title">輕鬆得到完整績效報告</p>
+                </div>
+
+                <div class="middle">
+                        <p class="paragraph">
+                            投組績效檢視 <br>
+                            讓你可以時時依照市場變化 <br>
+                            修正調整自己的投組 <br>
+                            不會再比別人慢半拍
+                        </p>
+                </div>
+
+                <div class="right">
+                    <img src="/static/img/lego-4.jpg" alt="A.L. Lego">
+                </div>
+
+            </div>
+        </div>
+
+
+    </main>
+
+    <script src="/static/js/dist/ai-lego.js"></script>
+    <!-- <script src="/static/js/dev/views/ai-lego.mjs" type="module"></script> -->
+</body>
+</html>

@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>機器學習測試</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+</head>
+<body>
+
+    <main id="app">
+        <form action="/Block_Design/api/strategy_Select" method="POST"> {% csrf_token %}
+
+            <h1>機器學習測試</h1>
+
+            <div class="each">
+                    <label>樣本內開始日期</label>
+                    <input type="date" name="sampleInStart" />
+            </div>
+        
+            <div class="each">
+                <label>樣本內結束日期</label>
+                <input type="date" name="sampleInEnd" />
+            </div>
+
+            <div class="each">
+                <label>樣本外結束日期</label>
+                <input type="date" name="sampleOutStart" />
+            </div>
+
+            <div class="each">
+                <label>樣本外結束日期</label>
+                <input type="date" name="sampleOutEnd" />
+            </div>
+
+            <div class="each">
+                <label>選擇股票</label>
+                <select name="selectStock">
+                    <option :value="item.code" v-for="(item,key) in allStock">#{item.name}</option>
+                </select>
+            </div>
+
+            <div class="each">
+                <div class="select-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>指標名稱</th>
+                                <th>天數</th>
+                                <th>參數二</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>++</td>
+                                <td>
+                                    <select name="selectIndex" v-model="selectIndex">
+                                        <option value="high">high</option>
+                                        <option value="low">low</option>
+                                        <option value="close">close</option>
+                                        <option value="open">open</option>
+                                        <option value="volume">volume</option>
+                                        <option value="MA">MA</option>
+                                        <option value="RSA">RSA</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" name="day">
+                                </td>
+                                <td>
+                                    <input type="text" name="parameter2">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="each">
+                <label>給的答案</label>
+                <select name="answer">
+                    <option value="next_day_ret">next_day_ret</option>
+                    <option value="next_week_ret">next_week_ret</option>
+                    <option value="zigzag">zigzag</option>
+                </select>
+            </div>
+
+            <div class="each">
+
+                <label>方法選擇:</label>
+
+                <select name="selectMethod">
+                    <option value="NB">NB</option>
+                    <option value="DT">DT</option>
+                    <option value="KNN">KNN</option>
+                    <option value="RF">RF</option>
+                </select>
+
+            </div>
+
+            <button type="submit">提交</button>
+
+        </form>
+    </main>
+    
+</body>
+
+<script>
+
+    new Vue({
+        el: '#app',
+        delimiters: ['#{', '}'],
+        data: {
+            selectIndex: '',
+            allStock: []
+        },
+        methods: {
+            async getStockCompany () {
+                const api = await axios.get('/Block_Design/api/stockList/');
+                const getStock = api.data.name;
+                var allStock = [];
+
+                for (let prop in getStock) {
+                    allStock.push({
+                        code: prop,
+                        name: getStock[[prop]]
+                    })
+                }
+
+                this.allStock = allStock;
+            }
+        },
+        mounted () {
+           this.getStockCompany();
+        }
+    })
+
+</script>
+
+</html>
