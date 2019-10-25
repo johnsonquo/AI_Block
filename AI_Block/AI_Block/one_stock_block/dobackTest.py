@@ -17,7 +17,7 @@ from pyfinance import ols
 def Do_back_test(inner_start_date, inner_end_date, outer_start_date, outer_end_date, stock_selected, answer_y, method_selected, table_feature, inLimitValue, outLimitValue, stopLossPoint, lockInGainValue):
     #try:
     
-    file_path = r'static\data\stock_' + str(stock_selected) + '.csv'
+    file_path = 'static/data/stock_' + str(stock_selected) + '.csv'
     data = pd.read_csv(file_path, index_col = 'date')[['open', 'high', 'low', 'close', 'volume']].dropna()
     data.index = pd.to_datetime(data.index, format = '%Y%m%d')
     factorList = []
@@ -116,7 +116,7 @@ def Get_DetailData_for_plot(detailData):
 
 
 def Get_stockList():
-    return pd.read_csv(r'static\data\stock_list.csv', index_col = 0)
+    return pd.read_csv('static/data/stock_list.csv', index_col = 0)
 
 def asList(a):
     list_a = []

@@ -1,0 +1,9 @@
+@mixin button ($bdrs,$pd,$w,$bg,$color) {
+    display: inline-block;
+    text-align: center;
+    border-radius: $bdrs + px;
+    padding: $pd + px;
+    width: $w + px ;
+    background: $bg;
+    color: $color;
+}

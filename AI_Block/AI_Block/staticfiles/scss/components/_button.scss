@@ -1,0 +1,12 @@
+@import '../const';
+
+.btn-normal {
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    width: 150px;
+    background: $bg-light;
+    color: $color-white;
+    text-align: center;
+}
+

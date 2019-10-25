@@ -23,4 +23,4 @@ urlpatterns = [
     path('', views.CreateIndexPage)
 ]
 
-urlpatterns += staticfiles_urlpatterns()
+#urlpatterns += staticfiles_urlpatterns()

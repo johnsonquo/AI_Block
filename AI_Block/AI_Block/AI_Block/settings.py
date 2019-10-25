@@ -15,13 +15,16 @@ import posixpath
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_URL = "/static/"
+STATIC_ROOT =  'staticfiles'
 
 STATICFILES_DIRS = (
-('css',os.path.join(STATIC_ROOT,'css').replace('\\','/') ),
-('js',os.path.join(STATIC_ROOT,'js').replace("\\","/") ),
-('img',os.path.join(STATIC_ROOT,'img').replace('\\','/') ),
-##('upload',os.path.join(STATIC_ROOT,'upload').replace('\\','/') ),
+#os.path.join(BASE_DIR, 'static'),
+('css',os.path.join(BASE_DIR, "static/",'css').replace('\\','/') ),
+('js',os.path.join(BASE_DIR, "static/",'js').replace("\\","/") ),
+('img',os.path.join(BASE_DIR, "static/",'img').replace('\\','/') ),
+('data',os.path.join(BASE_DIR, "static/", "data").replace('\\','/')),
+#('upload',os.path.join(STATIC_ROOT,'upload').replace('\\','/') ),
 )
 
 # Quick-start development settings - unsuitable for production
@@ -31,9 +34,9 @@ STATICFILES_DIRS = (
 SECRET_KEY = '27ea4406-4fd4-4109-a09b-e127e1e2205a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['172.104.88.18','localhost',]
 
 # Application references
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
@@ -166,5 +169,6 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATIC_URL = '/static/'
-STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+#STATIC_URL = '/static/'
+#STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+#STATIC_ROOT = os.path.join(BASE_DIR, "/var/www/static")
